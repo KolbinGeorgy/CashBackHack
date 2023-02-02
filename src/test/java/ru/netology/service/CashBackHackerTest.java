@@ -7,39 +7,31 @@ import static org.junit.Assert.assertEquals;
 
 public class CashBackHackerTest {
 
-    CashBackHacker service = new CashBackHacker();
-
     @Test
-    public void shouldIfAmountUnderLimitBoundary() {
+    public void sholdTestRemainAdd100() {
         CashBackHacker service = new CashBackHacker();
-
-        int amount = 1200;
+        int amount = 900;
+        int expected = 100;
         int actual = service.remain(amount);
-        int expected = 800;
-
-        assertEquals(actual, expected);
-    }
-
-    @Test
-    public void shouldIfAmountLessLimitBoundary() {
-        CashBackHacker service = new CashBackHacker();
-
-        int amount = 500;
-        int actual = service.remain(amount);
-        int expected = 500;
-
         assertEquals(expected, actual);
+
     }
 
     @Test
-    public void shouldIfAmountEqualsBoundary() {
+    public void sholdTestRemainAddZero() {
         CashBackHacker service = new CashBackHacker();
-
         int amount = 1000;
-        int actual = service.remain(amount);
         int expected = 0;
-
+        int actual = service.remain(amount);
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void sholdTestRemainAdd1000() {
+        CashBackHacker service = new CashBackHacker();
+        int amount = 0;
+        int expected = 1000;
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+    }
 }
