@@ -1,41 +1,37 @@
 package ru.netology.service;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.Assert.assertEquals;
 
-class CashBackHackerTest {
+
+public class CashBackHackerTest {
 
     @Test
-    public void shouldIfAmountUnderLimitBoundary() {
+    public void sholdTestRemainAdd100() {
         CashBackHacker service = new CashBackHacker();
-
-        int amount = 1200;
-        int expected = 800;
+        int amount = 900;
+        int expected = 100;
         int actual = service.remain(amount);
+        assertEquals(actual, expected);
 
-        assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldIfAmountLessLimitBoundary() {
+    public void sholdTestRemainAddZero() {
         CashBackHacker service = new CashBackHacker();
-
-        int amount = 500;
-        int expected = 500;
-        int actual = service.remain(amount);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldIfAmountEqualsBoundary() {
-        CashBackHacker service = new CashBackHacker();
-
         int amount = 1000;
+        int expected = 0;
+        int actual = service.remain(amount);
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void sholdTestRemainAdd1000() {
+        CashBackHacker service = new CashBackHacker();
+        int amount = 0;
         int expected = 1000;
         int actual = service.remain(amount);
-
-        assertEquals(expected, actual);
+        assertEquals(actual, expected);
     }
 }
